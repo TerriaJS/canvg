@@ -18,23 +18,23 @@
 	else if ( typeof module !== 'undefined' && module.exports ) {
 		module.exports = factory( require( 'rgbcolor' ), require( 'stackblur' ) );
 	}
-    else {
+    else {s
 	   global.canvg = factory( global.RGBColor, global.stackBlur );
     }
 
 }( typeof window !== 'undefined' ? window : this, function ( RGBColor, stackBlur ) {
-	var nodeEnv = (typeof module !== 'undefined' && module.exports);
+	var nodeEnv = false; //(typeof module !== 'undefined' && module.exports);
     var windowEnv, ImageClass, CanvasClass,
 		defaultClientWidth = 800, defaultClientHeight = 600;
-	if (nodeEnv && (typeof window === 'undefined')) {
-		var jsdom = require('jsdom').jsdom;
-		windowEnv = jsdom().defaultView;
-	} else {
+	// if (nodeEnv && (typeof window === 'undefined')) {
+	// 	var jsdom = require('jsdom').jsdom;
+	// 	windowEnv = jsdom().defaultView;
+	// } else {
         windowEnv = window;
-    }
-	if (!windowEnv.DOMParser) {
-		windowEnv.DOMParser = require('xmldom').DOMParser;
-	}
+    // }
+	// if (!windowEnv.DOMParser) {
+	// 	windowEnv.DOMParser = require('xmldom').DOMParser;
+	// }
 
 	function createCanvas() {
 		var c;
